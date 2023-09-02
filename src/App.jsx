@@ -1,5 +1,50 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import Home from "./ui/Home";
+import Menu from "./features/menu/Menu";
+import Cart from "./features/cart/Cart";
+import CreateOrder from "./features/order/CreateOrder";
+import Order from "./features/order/Order";
+import AppLayout from "./ui/AppLayout";
+
+const router = createBrowserRouter([
+    {
+        element: <AppLayout></AppLayout>,
+        children: [
+            {
+                path: "/",
+                element: <Home></Home>,
+            },
+            {
+                path: "/menu",
+                element: <Menu></Menu>,
+            },
+            {
+                path: "/cart",
+                element: <Cart></Cart>,
+            },
+            {
+                path: "/order/new",
+                element: <CreateOrder></CreateOrder>,
+            },
+            {
+                path: "/order/:orderId",
+                element: <Order></Order>,
+            },
+            {
+                path: "/order/new",
+                element: <CreateOrder></CreateOrder>,
+            },
+            {
+                path: "/order/:orderId",
+                element: <Order></Order>,
+            },
+        ],
+    },
+]);
+
 function App() {
-    return <div>Hello vite</div>;
+    return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
